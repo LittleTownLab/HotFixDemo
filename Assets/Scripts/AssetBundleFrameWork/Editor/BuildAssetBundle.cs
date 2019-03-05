@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;   //引入Unity编辑器，命名空间
 using System.IO;     //引入的C#IO,命名空间
+using HotUpdateModel;
 
 namespace ABFW
 {
@@ -34,13 +35,17 @@ namespace ABFW
             //获取"StreamingAssets"数值
             strABOutPathDIR = PathTools.GetABOutPath();
 
-        //判断生成输出目录文件夹
+            //判断生成输出目录文件夹
             if (!Directory.Exists(strABOutPathDIR))
             {
                 Directory.CreateDirectory(strABOutPathDIR);
             }
             //打包生成
             BuildPipeline.BuildAssetBundles(strABOutPathDIR, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
+
+            CopyLuaFileToSA.CopyLuaFileTo();
+
+            CreateVerifyFiles.CreateFileMethod();
         }
 
     }//Class_end
