@@ -1,0 +1,7 @@
+Library/
+Temp/
+ProjectSettings/
+UnityPackageManager/
+HotFixDemo.csproj
+HotFixDemo.Editor.csproj
+HotFixDemo.sln
