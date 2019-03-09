@@ -49,6 +49,12 @@ namespace ABFW
             StartCoroutine(ABManifestLoader.GetInstance().LoadMainifestFile());
         }
 
+        public void LoadAssetBundlePackage(string scenesName, string abName, DelLoadComplete loadAllCompleteHandle)
+        {
+            Debug.Log("33 loadAllCompleteHandle " + loadAllCompleteHandle);
+            StartCoroutine(LoadAssetBundlePack(scenesName, abName, loadAllCompleteHandle));
+        }
+
 
         /// <summary>
         /// 下载AssetBundel 指定包
@@ -81,6 +87,7 @@ namespace ABFW
             //把当前场景加入集合中。
             if (!_DicAllScenes.ContainsKey(scenesName))
             {
+                Debug.Log("22 loadAllCompleteHandle " + loadAllCompleteHandle);
                 MultiABMgr multiMgrObj = new MultiABMgr(scenesName,abName, loadAllCompleteHandle);
                 _DicAllScenes.Add(scenesName, multiMgrObj);
             }

@@ -24,6 +24,7 @@ using UnityEngine;
 namespace ABFW
 {
     /* 委托定义区 */
+    [XLua.CSharpCallLua]
     public delegate void DelLoadComplete(string abName);
 
 
@@ -33,8 +34,9 @@ namespace ABFW
 	{
         /* 框架常量 */
         public static string ASSETBUNDLE_MANIFEST = "AssetBundleManifest";
-		
-	}
+        public static string ReceiveInfoStartRuning = "ReceiveInfoStartRuning";
+        public static string ProjectVerifyFile = "/ProjectVerifyFile.txt";
+    }
 }
 
 

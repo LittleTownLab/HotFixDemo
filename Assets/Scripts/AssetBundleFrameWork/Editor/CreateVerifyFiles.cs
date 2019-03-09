@@ -14,7 +14,7 @@ namespace HotUpdateModel
         public static void CreateFileMethod()
         {
             string abOutPath = PathTools.GetABOutPath();
-            string verifyFileOutPath = abOutPath + "/ProjectVerifyFile.txt";
+            string verifyFileOutPath = abOutPath + ABDefine.ProjectVerifyFile;
             List<string> fileList = new List<string>();
 
             //Debug.Log("verifyFileOutPath = " + verifyFileOutPath);

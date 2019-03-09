@@ -26,6 +26,7 @@ namespace ABFW
         public const string AB_RESOURCES = "AB_Res";
         public const string LUA_RESOURCE_PATH = "/LuaScripts";
         public const string LUA_DEPLOY_PATH = "/LUA";
+        public const string SERVER_URL = "http://127.0.0.1:8080/UpdateAssets";
 
         /* 路径方法 */
         /// <summary>

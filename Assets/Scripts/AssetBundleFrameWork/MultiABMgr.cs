@@ -51,6 +51,7 @@ namespace ABFW
             _DicSingleABLoaderCache = new Dictionary<string, SingleABLoader>();
             _DicABRelation = new Dictionary<string, ABRelation>();
             //委托
+            Debug.Log("11 _LoadAllABPackageCompleteHandel "+ _LoadAllABPackageCompleteHandel);
             _LoadAllABPackageCompleteHandel = loadAllABPackCompleteHandle;
         }
 
@@ -63,8 +64,10 @@ namespace ABFW
             Debug.Log(GetType() + "/当前完成abName: " + abName + " 包的加载");
             if (abName.Equals(_CurrentABName))
             {
+                Debug.Log("111");
                 if (_LoadAllABPackageCompleteHandel!=null)
                 {
+                    Debug.Log("2222");
                     _LoadAllABPackageCompleteHandel(abName);
                 }
             }

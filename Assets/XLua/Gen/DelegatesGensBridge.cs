@@ -16,7 +16,34 @@ namespace XLua
     public partial class DelegateBridge : DelegateBridgeBase
     {
 		
-		public InvokeLua.ICalc __Gen_Delegate_Imp0(int p0, string[] p1)
+		public void __Gen_Delegate_Imp0(string p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int err_func =LuaAPI.load_error_func(L, errorFuncRef);
+                
+                
+                LuaAPI.lua_getref(L, luaReference);
+                
+                LuaAPI.lua_pushstring(L, p0);
+                
+                int __gen_error = LuaAPI.lua_pcall(L, 1, 0, err_func);
+                if (__gen_error != 0)
+                    luaEnv.ThrowExceptionFromError(err_func - 1);
+                
+                
+                
+                LuaAPI.lua_settop(L, err_func - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public InvokeLua.ICalc __Gen_Delegate_Imp1(int p0, string[] p1)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -44,7 +71,7 @@ namespace XLua
 #endif
 		}
         
-		public int __Gen_Delegate_Imp1(int p0)
+		public int __Gen_Delegate_Imp2(int p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -71,7 +98,7 @@ namespace XLua
 #endif
 		}
         
-		public UnityEngine.Vector3 __Gen_Delegate_Imp2(UnityEngine.Vector3 p0)
+		public UnityEngine.Vector3 __Gen_Delegate_Imp3(UnityEngine.Vector3 p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -98,7 +125,7 @@ namespace XLua
 #endif
 		}
         
-		public XLuaTest.MyStruct __Gen_Delegate_Imp3(XLuaTest.MyStruct p0)
+		public XLuaTest.MyStruct __Gen_Delegate_Imp4(XLuaTest.MyStruct p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -125,7 +152,7 @@ namespace XLua
 #endif
 		}
         
-		public XLuaTest.MyEnum __Gen_Delegate_Imp4(XLuaTest.MyEnum p0)
+		public XLuaTest.MyEnum __Gen_Delegate_Imp5(XLuaTest.MyEnum p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -152,7 +179,7 @@ namespace XLua
 #endif
 		}
         
-		public decimal __Gen_Delegate_Imp5(decimal p0)
+		public decimal __Gen_Delegate_Imp6(decimal p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -179,7 +206,7 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp6(System.Array p0)
+		public void __Gen_Delegate_Imp7(System.Array p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -206,7 +233,7 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp7()
+		public void __Gen_Delegate_Imp8()
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -232,7 +259,7 @@ namespace XLua
 #endif
 		}
         
-		public void __Gen_Delegate_Imp8(bool p0)
+		public void __Gen_Delegate_Imp9(bool p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -259,7 +286,7 @@ namespace XLua
 #endif
 		}
         
-		public int __Gen_Delegate_Imp9(HotfixCalc p0, int p1, out double p2, ref string p3)
+		public int __Gen_Delegate_Imp10(HotfixCalc p0, int p1, out double p2, ref string p3)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -290,7 +317,7 @@ namespace XLua
 #endif
 		}
         
-		public double __Gen_Delegate_Imp10(double p0, double p1)
+		public double __Gen_Delegate_Imp11(double p0, double p1)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -313,33 +340,6 @@ namespace XLua
                 double __gen_ret = LuaAPI.lua_tonumber(L, err_func + 1);
                 LuaAPI.lua_settop(L, err_func - 1);
                 return  __gen_ret;
-#if THREAD_SAFE || HOTFIX_ENABLE
-            }
-#endif
-		}
-        
-		public void __Gen_Delegate_Imp11(string p0)
-		{
-#if THREAD_SAFE || HOTFIX_ENABLE
-            lock (luaEnv.luaEnvLock)
-            {
-#endif
-                RealStatePtr L = luaEnv.rawL;
-                int err_func =LuaAPI.load_error_func(L, errorFuncRef);
-                
-                
-                LuaAPI.lua_getref(L, luaReference);
-                
-                LuaAPI.lua_pushstring(L, p0);
-                
-                int __gen_error = LuaAPI.lua_pcall(L, 1, 0, err_func);
-                if (__gen_error != 0)
-                    luaEnv.ThrowExceptionFromError(err_func - 1);
-                
-                
-                
-                LuaAPI.lua_settop(L, err_func - 1);
-                
 #if THREAD_SAFE || HOTFIX_ENABLE
             }
 #endif
@@ -921,69 +921,74 @@ namespace XLua
 		public override Delegate GetDelegateByType(Type type)
 		{
 		
-		    if (type == typeof(InvokeLua.CalcNew))
+		    if (type == typeof(ABFW.DelLoadComplete))
 			{
-			    return new InvokeLua.CalcNew(__Gen_Delegate_Imp0);
-			}
-		
-		    if (type == typeof(XLuaTest.IntParam))
-			{
-			    return new XLuaTest.IntParam(__Gen_Delegate_Imp1);
-			}
-		
-		    if (type == typeof(XLuaTest.Vector3Param))
-			{
-			    return new XLuaTest.Vector3Param(__Gen_Delegate_Imp2);
-			}
-		
-		    if (type == typeof(XLuaTest.CustomValueTypeParam))
-			{
-			    return new XLuaTest.CustomValueTypeParam(__Gen_Delegate_Imp3);
-			}
-		
-		    if (type == typeof(XLuaTest.EnumParam))
-			{
-			    return new XLuaTest.EnumParam(__Gen_Delegate_Imp4);
-			}
-		
-		    if (type == typeof(XLuaTest.DecimalParam))
-			{
-			    return new XLuaTest.DecimalParam(__Gen_Delegate_Imp5);
-			}
-		
-		    if (type == typeof(XLuaTest.ArrayAccess))
-			{
-			    return new XLuaTest.ArrayAccess(__Gen_Delegate_Imp6);
-			}
-		
-		    if (type == typeof(System.Action))
-			{
-			    return new System.Action(__Gen_Delegate_Imp7);
-			}
-		
-		    if (type == typeof(UnityEngine.Events.UnityAction))
-			{
-			    return new UnityEngine.Events.UnityAction(__Gen_Delegate_Imp7);
-			}
-		
-		    if (type == typeof(System.Action<bool>))
-			{
-			    return new System.Action<bool>(__Gen_Delegate_Imp8);
-			}
-		
-		    if (type == typeof(TestOutDelegate))
-			{
-			    return new TestOutDelegate(__Gen_Delegate_Imp9);
-			}
-		
-		    if (type == typeof(System.Func<double, double, double>))
-			{
-			    return new System.Func<double, double, double>(__Gen_Delegate_Imp10);
+			    return new ABFW.DelLoadComplete(__Gen_Delegate_Imp0);
 			}
 		
 		    if (type == typeof(System.Action<string>))
 			{
-			    return new System.Action<string>(__Gen_Delegate_Imp11);
+			    return new System.Action<string>(__Gen_Delegate_Imp0);
+			}
+		
+		    if (type == typeof(InvokeLua.CalcNew))
+			{
+			    return new InvokeLua.CalcNew(__Gen_Delegate_Imp1);
+			}
+		
+		    if (type == typeof(XLuaTest.IntParam))
+			{
+			    return new XLuaTest.IntParam(__Gen_Delegate_Imp2);
+			}
+		
+		    if (type == typeof(XLuaTest.Vector3Param))
+			{
+			    return new XLuaTest.Vector3Param(__Gen_Delegate_Imp3);
+			}
+		
+		    if (type == typeof(XLuaTest.CustomValueTypeParam))
+			{
+			    return new XLuaTest.CustomValueTypeParam(__Gen_Delegate_Imp4);
+			}
+		
+		    if (type == typeof(XLuaTest.EnumParam))
+			{
+			    return new XLuaTest.EnumParam(__Gen_Delegate_Imp5);
+			}
+		
+		    if (type == typeof(XLuaTest.DecimalParam))
+			{
+			    return new XLuaTest.DecimalParam(__Gen_Delegate_Imp6);
+			}
+		
+		    if (type == typeof(XLuaTest.ArrayAccess))
+			{
+			    return new XLuaTest.ArrayAccess(__Gen_Delegate_Imp7);
+			}
+		
+		    if (type == typeof(System.Action))
+			{
+			    return new System.Action(__Gen_Delegate_Imp8);
+			}
+		
+		    if (type == typeof(UnityEngine.Events.UnityAction))
+			{
+			    return new UnityEngine.Events.UnityAction(__Gen_Delegate_Imp8);
+			}
+		
+		    if (type == typeof(System.Action<bool>))
+			{
+			    return new System.Action<bool>(__Gen_Delegate_Imp9);
+			}
+		
+		    if (type == typeof(TestOutDelegate))
+			{
+			    return new TestOutDelegate(__Gen_Delegate_Imp10);
+			}
+		
+		    if (type == typeof(System.Func<double, double, double>))
+			{
+			    return new System.Func<double, double, double>(__Gen_Delegate_Imp11);
 			}
 		
 		    if (type == typeof(System.Action<double>))
