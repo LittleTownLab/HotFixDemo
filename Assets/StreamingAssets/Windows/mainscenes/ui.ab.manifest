@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3316920518
+CRC: 2211444250
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 79cefbe44013015fe3022f38e73980c8
+    Hash: 3fa4e77beff6378d5a12d4f45e5d069f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a3de5f1560856b6be32db1e6866df7da
+    Hash: 168ba7da3ce56ed4540fc2057be9cbd9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -18,14 +18,20 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
   Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
-  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  Script: {fileID: 11500000, guid: 04860c273117f4b469288590f33c1425, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
@@ -35,4 +41,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/AB_Res/MainScenes/UI/UI_Notice.prefab
+- Assets/AB_Res/MainScenes/UI/UIContDown.prefab
 Dependencies: []

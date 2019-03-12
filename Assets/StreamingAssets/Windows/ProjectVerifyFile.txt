@@ -1,5 +1,7 @@
+LUA/CorLaunchABFW.lua|b480236a0508263b858cd670addcb05a
+LUA/LauchABFW.lua|681e7c4d92aa0d1d7a5d93d24c39f098
 LUA/TestOnly.lua|462147366e81c0b99c5a9538b4dcaa26
-mainscenes/ui.ab|c13bb556f13a129f829764df6549afa5
-mainscenes/ui.ab.manifest|e09f7d960e0b766831c52489a01d70b8
-Windows|f3e6b530608db7eeeacceac8189da5a3
-Windows.manifest|c7f9c5c4a55647c4c239b8ea06f3bebb
+mainscenes/ui.ab|e5c9d2c14359a4744b40d64b6d4ead88
+mainscenes/ui.ab.manifest|60bee85a4e3bffcee7ee4b1bfe153329
+Windows|9f467f41b7e92dd654d661b1d0bfdf38
+Windows.manifest|2eb89a5909f85f6f465f7df1e1e82c7f
